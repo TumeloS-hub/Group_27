@@ -1,3 +1,9 @@
+//First Person Controller
+//Andrea Hayes
+//18 September 2026
+//C#
+//https://ulwazi.wits.ac.za/courses/87753/files/11404062?module_item_id=1194561
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
