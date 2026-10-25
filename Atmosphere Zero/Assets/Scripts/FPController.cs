@@ -1,5 +1,12 @@
+//First Person Controller
+//Andrea Hayes
+//18 September 2026
+//C#
+//https://ulwazi.wits.ac.za/courses/87753/files/11404062?module_item_id=1194561
+
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class FPController : MonoBehaviour
 {
@@ -23,6 +30,7 @@ public class FPController : MonoBehaviour
     public Transform holdPoint;
     public float pickupRange = 3f;
     private Rigidbody heldObject;
+    public TMP_Text pickupText;
 
     private CharacterController controller;
     private Vector2 moveInput;
@@ -39,6 +47,9 @@ public class FPController : MonoBehaviour
 
     private void Update()
     {
+
+        if (PauseMenuManager.GameIsPaused) return;
+
         HandleMovement();
         HandleLook();
 
@@ -46,6 +57,20 @@ public class FPController : MonoBehaviour
         {
             heldObject.transform.position = holdPoint.position;
         }
+
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, pickupRange))
+        {
+            PickUpObject pickUp = hit.collider.GetComponent<PickUpObject>();
+            if (pickUp != null)
+            {
+                pickupText.text = pickUp.gameObject.name;
+                return;
+            }
+        }
+
+        // Clear text if not looking at a pickup
+        pickupText.text = "";
     }
 
     public void OnMove(InputAction.CallbackContext context)
