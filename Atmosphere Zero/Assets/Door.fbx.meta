@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a9a99d4972d16dc4191f242f7b05b36e
+guid: d378a6ee1e95033458c993595d5e4e7f
 ModelImporter:
   serializedVersion: 24300
   internalIDToNameTable: []
@@ -8,17 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_handle
-    second: {fileID: 2100000, guid: fd68c272c0615a148989a53869a1e218, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Door_handle_knob
-    second: {fileID: 2100000, guid: 280b7f6c7b8954f4fa8e085c9ba0d83f, type: 2}
+    second: {fileID: 2100000, guid: 862082102fe949844a54c2f559dd7bd1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Door_mesh
-    second: {fileID: 2100000, guid: 71d30a1f84ea9aa478b897e9cb8e6a1e, type: 2}
+    second: {fileID: 2100000, guid: 6df2f39581c5d0a4f9826e9d03c2a9bf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -62,7 +57,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
