@@ -1,9 +1,4 @@
-//First Person Controller
-//Andrea Hayes
-//18 September 2026
-//C#
-//https://ulwazi.wits.ac.za/courses/87753/files/11404062?module_item_id=1194561
-
+//First Person Controller//Andrea Hayes//18 September 2026//C#//https://ulwazi.wits.ac.za/courses/87753/files/11404062?module_item_id=1194561
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
@@ -23,7 +18,7 @@ public class FPController : MonoBehaviour
 
     [Header("Look Settings")]
     public Transform cameraTransform;
-    public float lookSensitivity = 0.1f;
+    public float mouseSensitivity = 0.1f;
     public float verticalLookLimit = 90f;
 
     [Header("Pickup Settings")]
@@ -45,9 +40,14 @@ public class FPController : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void Start()
+    {
+        // Load saved sensitivity preference if it exists
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", mouseSensitivity);
+    }
+
     private void Update()
     {
-
         if (PauseMenuManager.GameIsPaused) return;
 
         HandleMovement();
@@ -171,8 +171,8 @@ public class FPController : MonoBehaviour
 
     private void HandleLook()
     {
-        float mouseX = lookInput.x * lookSensitivity;
-        float mouseY = lookInput.y * lookSensitivity;
+        float mouseX = lookInput.x * mouseSensitivity;
+        float mouseY = lookInput.y * mouseSensitivity;
 
         verticalRotation -= mouseY;
         verticalRotation = Mathf.Clamp(verticalRotation, -verticalLookLimit, verticalLookLimit);
